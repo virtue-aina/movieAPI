@@ -1,4 +1,4 @@
-package dev.virtue.movies.Contollers;
+package dev.virtue.movies.Controllers;
 import dev.virtue.movies.Models.Review;
 import dev.virtue.movies.Services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,8 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
     @PostMapping
-    public ResponseEntity<Review> createReview(@RequestBody Map<String, String>  payload ) {
+    public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload ) {
         return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"), payload.get("id")), HttpStatus.CREATED);
     }
 }
+

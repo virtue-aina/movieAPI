@@ -1,4 +1,4 @@
-package dev.virtue.movies.Contollers;
+package dev.virtue.movies.Controllers;
 
 import dev.virtue.movies.Models.Movie;
 import dev.virtue.movies.Services.MovieService;
