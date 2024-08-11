@@ -8,7 +8,9 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
-
+/**
+ * TODO-implement Validation and Authentication
+ */
 @Service
 public class ReviewService {
    @Autowired
