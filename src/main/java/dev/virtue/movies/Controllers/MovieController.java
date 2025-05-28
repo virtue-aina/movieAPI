@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,15 +18,34 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/movies")
 public class MovieController {
-    @Autowired
-    private MovieService movieService;
+    private final MovieService movieService;
+
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Movie>> getAllMovies() {
-        return new ResponseEntity<List<Movie>>(movieService.allMovies(), HttpStatus.OK);
+        return new ResponseEntity<>(movieService.allMovies(), HttpStatus.OK);
     }
+
     @GetMapping("/{Id}")
-    public ResponseEntity<Optional<Movie>> getOneMovie(@PathVariable ObjectId Id) {
-        return new ResponseEntity<Optional<Movie>>(movieService.oneMovie(Id), HttpStatus.OK);
+    public ResponseEntity<Movie> getOneMovie(@PathVariable ObjectId Id) {
+        return new ResponseEntity<>(movieService.oneMovie(Id), HttpStatus.OK);
+    }
+
+    @GetMapping("/imdb/{imdbId}")
+    public ResponseEntity<Movie> getMovieByImdbId(@PathVariable String imdbId) {
+        return new ResponseEntity<>(movieService.getMovieByImdbId(imdbId), HttpStatus.OK);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Movie>> searchMoviesByTitle(@RequestParam String title) {
+        return new ResponseEntity<>(movieService.getMoviesByTitle(title), HttpStatus.OK);
+    }
+
+    @GetMapping("/genre/{genre}")
+    public ResponseEntity<List<Movie>> getMoviesByGenre(@PathVariable String genre) {
+        return new ResponseEntity<>(movieService.getMoviesByGenre(genre), HttpStatus.OK);
     }
 }
