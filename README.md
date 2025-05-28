@@ -119,7 +119,21 @@ The application uses JWT-based authentication. To access protected endpoints:
 - `src/main/java/dev/virtue/movies/Exceptions`: Contains exception handling classes.
 
 ## Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Follow the [commit message guidelines](docs/COMMIT_GUIDELINES.md) for your commits
+4. Install the commit message hook for validation:
+   ```sh
+   chmod +x commit-msg.sh
+   cp commit-msg.sh .git/hooks/commit-msg
+   ```
+5. Push to your branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request using the provided template
+
+### Commit Message Guidelines
+We follow conventional commit messages to make our commit history more readable and to automate versioning and changelog generation. See the [commit message guidelines](docs/COMMIT_GUIDELINES.md) for details.
 
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
