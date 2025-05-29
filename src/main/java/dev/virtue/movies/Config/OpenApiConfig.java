@@ -22,7 +22,7 @@ public class OpenApiConfig {
                         .version("1.0.0")
                         .contact(new Contact()
                                 .name("Virtue Aina")
-                                .email("ayokanmi.aina@gmail.com")
+                                .email("example@gmail.com")
                                 .url("https://github.com/virtue-aina"))
                         .license(new License()
                                 .name("MIT License")
